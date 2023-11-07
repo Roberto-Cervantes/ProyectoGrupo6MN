@@ -17,6 +17,7 @@
 
 --
 -- Table structure for table `artistas`
+-- ACTUALIZACION
 --
 
 DROP TABLE IF EXISTS `artistas`;
@@ -25,10 +26,19 @@ DROP TABLE IF EXISTS `artistas`;
 CREATE TABLE `artistas` (
   `id_artista` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(45) NOT NULL,
-  `ruta_imagen` varchar(254) NOT NULL,
+  `ruta_imagen` varchar(254) DEFAULT NULL,
   PRIMARY KEY (`id_artista`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `artistas`
+--
+
+LOCK TABLES `artistas` WRITE;
+/*!40000 ALTER TABLE `artistas` DISABLE KEYS */;
+/*!40000 ALTER TABLE `artistas` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `artistas_seguidos`
@@ -45,6 +55,15 @@ CREATE TABLE `artistas_seguidos` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `artistas_seguidos`
+--
+
+LOCK TABLES `artistas_seguidos` WRITE;
+/*!40000 ALTER TABLE `artistas_seguidos` DISABLE KEYS */;
+/*!40000 ALTER TABLE `artistas_seguidos` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `boletines`
 --
 
@@ -58,6 +77,15 @@ CREATE TABLE `boletines` (
   PRIMARY KEY (`id_boletin`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `boletines`
+--
+
+LOCK TABLES `boletines` WRITE;
+/*!40000 ALTER TABLE `boletines` DISABLE KEYS */;
+/*!40000 ALTER TABLE `boletines` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `compras`
@@ -83,6 +111,15 @@ CREATE TABLE `compras` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `compras`
+--
+
+LOCK TABLES `compras` WRITE;
+/*!40000 ALTER TABLE `compras` DISABLE KEYS */;
+/*!40000 ALTER TABLE `compras` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `eventos`
 --
 
@@ -96,12 +133,21 @@ CREATE TABLE `eventos` (
   `dia` varchar(12) NOT NULL,
   `hora` varchar(12) NOT NULL,
   `precio` int NOT NULL,
-  `ruta_imagen` varchar(1024) NOT NULL,
+  `ruta_imagen` varchar(1024) DEFAULT NULL,
   PRIMARY KEY (`id_evento`),
   KEY `fk_idArtistas_idx` (`artista_id`),
   CONSTRAINT `fk_idArtistas` FOREIGN KEY (`artista_id`) REFERENCES `artistas` (`id_artista`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `eventos`
+--
+
+LOCK TABLES `eventos` WRITE;
+/*!40000 ALTER TABLE `eventos` DISABLE KEYS */;
+/*!40000 ALTER TABLE `eventos` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `metodos_pago`
@@ -116,12 +162,21 @@ CREATE TABLE `metodos_pago` (
   `numero_tarjeta` int NOT NULL,
   `fecha_vencimiento` varchar(12) NOT NULL,
   `codigo_verificacion` int NOT NULL,
-  `ruta_imagen_marca` varchar(254) NOT NULL,
+  `ruta_imagen_marca` varchar(254) DEFAULT NULL,
   PRIMARY KEY (`id_metodo_pago`),
   KEY `fk_idUsuario_idx` (`usuario_id`),
   CONSTRAINT `fk_idUsuario` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id_usuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `metodos_pago`
+--
+
+LOCK TABLES `metodos_pago` WRITE;
+/*!40000 ALTER TABLE `metodos_pago` DISABLE KEYS */;
+/*!40000 ALTER TABLE `metodos_pago` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `notificaciones`
@@ -136,6 +191,15 @@ CREATE TABLE `notificaciones` (
   PRIMARY KEY (`id_notificacion`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `notificaciones`
+--
+
+LOCK TABLES `notificaciones` WRITE;
+/*!40000 ALTER TABLE `notificaciones` DISABLE KEYS */;
+/*!40000 ALTER TABLE `notificaciones` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `resenas`
@@ -159,6 +223,15 @@ CREATE TABLE `resenas` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `resenas`
+--
+
+LOCK TABLES `resenas` WRITE;
+/*!40000 ALTER TABLE `resenas` DISABLE KEYS */;
+/*!40000 ALTER TABLE `resenas` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `roles`
 --
 
@@ -169,8 +242,18 @@ CREATE TABLE `roles` (
   `id_rol` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(45) NOT NULL,
   PRIMARY KEY (`id_rol`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `roles`
+--
+
+LOCK TABLES `roles` WRITE;
+/*!40000 ALTER TABLE `roles` DISABLE KEYS */;
+INSERT INTO `roles` VALUES (1,'Administrador'),(2,'Super usuario'),(3,'Cliente');
+/*!40000 ALTER TABLE `roles` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `secciones`
@@ -186,6 +269,15 @@ CREATE TABLE `secciones` (
   PRIMARY KEY (`id_seccion`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `secciones`
+--
+
+LOCK TABLES `secciones` WRITE;
+/*!40000 ALTER TABLE `secciones` DISABLE KEYS */;
+/*!40000 ALTER TABLE `secciones` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `usuarios`
@@ -206,8 +298,18 @@ CREATE TABLE `usuarios` (
   PRIMARY KEY (`id_usuario`),
   KEY `fk_idRol_idx` (`rol_id`),
   CONSTRAINT `fk_idRol` FOREIGN KEY (`rol_id`) REFERENCES `roles` (`id_rol`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `usuarios`
+--
+
+LOCK TABLES `usuarios` WRITE;
+/*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
+INSERT INTO `usuarios` VALUES (1,'Roberto','Cervantes','Castillo','1800800','roberto@ufide.com','Roberto',3),(4,'Juan','Perez','Perez','1100100','Juan@ufide.com','juan',3),(6,'Pablo','Gomez','Gomez','1700000','pablo@ufide.com','pablo',3),(7,'Felipe','Miranda','Alberto','910124578','felipe@ufide.com','Felipe',3);
+/*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `usuarios_notificados`
@@ -222,6 +324,15 @@ CREATE TABLE `usuarios_notificados` (
   PRIMARY KEY (`id_notificacion`,`id_usuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `usuarios_notificados`
+--
+
+LOCK TABLES `usuarios_notificados` WRITE;
+/*!40000 ALTER TABLE `usuarios_notificados` DISABLE KEYS */;
+/*!40000 ALTER TABLE `usuarios_notificados` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -232,4 +343,4 @@ CREATE TABLE `usuarios_notificados` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-11-03 11:50:02
+-- Dump completed on 2023-11-07 12:48:58

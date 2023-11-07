@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://thymeleaf.org">
+    <head th:fragment="head">
+        <title>SISTEMA DE TICKETS TEATRO</title>
+        <meta charset="UTF-8"/>
+        <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+        <link th:href="@{/webjars/font-awesome/css/all.css}" rel="stylesheet"/>
+        <script th:src="@{/js/rutinas.js}"></script>
+        <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+        <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+        <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+    </head>
+    <body> 
+        <section th:fragment="agregarUsuario">
+            <form th:action="@{/usuarios/guardar}" th:object="${usuarios}"
+                  method="POST" class="was-validated" enctype="multipart/form-data">
+                
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="nombre">!"#$Nombre</label>
+                        <input type="text" class="form-control" name="nombre" required="true"/>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="apellido1">!"#$Apellido 1</label>
+                        <input type="text" class="form-control" name="apellido1" required="true"/>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="apellido2">!"#$Apellido 2</label>
+                        <input type="text" class="form-control" name="apellido2" required="true"/>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="cedula">!"#$Cedula</label>
+                        <input type="text" class="form-control" name="cedula" required="true"/>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="correo">!"#$Correo</label>
+                        <input type="text" class="form-control" name="correo" required="true"/>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="contrasena">!"#$Contraseña</label>
+                        <input type="text" class="form-control" name="contrasena" required="true"/>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for=""RolId>!"#$Rol</label>
+                        <input type="text" class="form-control" name="RolId" required="true"/>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" type="submit">Guardar</button>
+                </div>
+            </form>
+        </section>
+    </body>
+</html>

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://thymeleaf.org">
     <head th:fragment="head">
-        <title>XXXXXXXXXX</title>
+        <title>SISTEMA DE TICKETS TEATRO</title>
         <meta charset="UTF-8"/>
         <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
         <link th:href="@{/webjars/font-awesome/css/all.css}" rel="stylesheet"/>
@@ -51,7 +51,7 @@
                                 <a class="nav-link" href="#">Identificate <span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Registrate</a>
+                                <a class="nav-link" th:href="@{/usuarios/crearUsuario}">>!"#$Registrate</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Ubicación</a>
