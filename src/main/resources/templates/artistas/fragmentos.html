@@ -40,8 +40,8 @@
                 </div>
             </div>
         </section>
-        
-        
+
+
         <section th:fragment="listadoArtistas" id="artistas">
             <div class="container">
                 <div class="row">
@@ -55,28 +55,27 @@
                                     <thead class="table-dark">
                                         <tr><th>#</th>
                                             <th>!"#$ Artista</th>
-                                            <th>!"#$ Imagen</th>
+                                            <th>!"#$ Opciones</th>
                                             <th></th></tr>
                                     </thead>
                                     <tbody>
                                         <tr th:each="artista, contador : ${artistas}">
-                                            
                                             <td>[[${contador.count}]]</td>
                                             <td>[[${artista.nombre}]]</td>
-                                            
-                                            <td><a th:href="@{/artista/eliminar/}+${artista.idArtista}"
+
+                                            <td><a th:href="@{/artistas/elimina/}+${artista.idArtista}"
                                                    class="btn btn-danger">
                                                     <i class="fas fa-trash"></i> !"#$ Eliminar</a>
-                                                <a th:href="@{/artista/modificar/}+${artista.idArtista}"
+                                                <a th:href="@{/artistas/modifica/}+${artista.idArtista}"
                                                    class="btn btn-success">
                                                     <i class="fas fa-pencil"></i> !"#$ Modificar</a>
                                             </td>
-                                            </tr>
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
                             <div class="text-center p-2" th:if="${artistas == null or artistas.empty}">
-                                <span>[[#{lista.vacia}]]</span>
+                                <span>!"#$ La lista está vacia</span>
                             </div>
                         </div>
                     </div>
@@ -91,6 +90,65 @@
                 </div>
             </div>
         </section>
-        
+        <section th:fragment="editarartistas">
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <form method="POST"
+                          th:action="@{/artistas/guardar}" 
+                          th:object="${artistas}"
+                          class="was-validated"                          
+                          enctype="multipart/form-data">
+                        <input type="hidden" name="idArtista" th:field="*{idArtista}"/>
+                        <input type="hidden" name="rutaImagen" th:field="*{rutaImagen}"/>
+                        <div id=details>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h4>!"#$ Actualizar</h4>
+                                            </div>
+                                            <div class="card-body">
+
+                                                <div class="modal-body">
+                                                    <div class="mb-3">
+                                                        <label for="nombre">!"#$Nombre</label>
+                                                        <input type="text" class="form-control" name="nombre" 
+                                                               th:field="${artistas.nombre}" required="true"/>
+                                                    </div>
+                                                </div>
+
+                                                <div class="mb-3">
+                                                    <label for="imagen">!"#$Imagen</label>
+                                                    <input class="form-control" type="file" name="imagenFile"
+                                                           onchange="readURL(this);" />
+                                                    <img id="blah" th:src="@{${artistas.rutaImagen}}" alt="your image" height="200"/>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container py-4 mb-4 bg-light">
+                                <div class="row">
+                                    <div class="col-md-4 d-grid">                                
+                                        <a th:href="@{/artistas/listado}"
+                                           class="btn btn-danger">
+                                            <i class="fas fa-trash"></i> !"#$ Regresar
+                                        </a>
+                                    </div>
+                                    <div class="col-md-4 d-grid">
+                                        <button type="submit" class="btn btn-success">
+                                            <i class="fas fa-check"></i> Actualizar
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                    </form>
+                </div>
+            </div>
+        </section>
     </body>
 </html>

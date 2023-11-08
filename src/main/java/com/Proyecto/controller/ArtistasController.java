@@ -72,17 +72,19 @@ public class ArtistasController {
         return "redirect:/artistas/listado";
     }
 
-    @GetMapping("/eliminar/{idArtistas}")
+    @GetMapping("/elimina/{idArtista}")
     public String artistasEliminar(Artistas artistas) {
+        System.out.println("***77***"+artistas+"***77***");
         artistasService.delete(artistas);
         return "redirect:/artistas/listado";
     }
 
-    @GetMapping("/modificar/{idArtistas}")
+    @GetMapping("/modifica/{idArtista}")
     public String artistasModificar(Artistas artistas, Model model) {
         artistas = artistasService.getArtistas(artistas);
         model.addAttribute("artistas", artistas);
-        return "/artistas/modifica";
+        System.out.println("***86***"+artistas+"***86***");
+        return "artistas/modifica";
     }
 
 }

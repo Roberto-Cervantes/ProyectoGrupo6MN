@@ -32,7 +32,7 @@ public class EventosServiceImpl implements EventosService{
     @Override
     @Transactional(readOnly = true)
     public Eventos getEventos(Eventos eventos) {
-        return eventosDao.findById(eventos.getIdEventos()).orElse(null);
+        return eventosDao.findById(eventos.getIdEvento()).orElse(null);
     }
 
     @Override
