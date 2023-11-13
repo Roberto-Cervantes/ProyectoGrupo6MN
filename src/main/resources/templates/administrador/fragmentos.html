@@ -36,8 +36,8 @@
                                role="button" 
                                aria-expanded="false">!"#$ Artistas</a>
                             <ul class="dropdown-menu dropdown-menu-dark">
-                                <li><a class="dropdown-item"  th:href="@{/artistas/listado}">!"#$Listar Artistas</a></li>
-                                <li><a class="dropdown-item"  th:href="@{/artistas/crearArtistas}">!"#$Crear Artistas</a></li>
+                                <li><a class="dropdown-item"  th:href="@{/artistas/listado}">!"#$ Listar Artistas</a></li>
+                                <li><a class="dropdown-item"  th:href="@{/artistas/crearArtistas}">!"#$ Crear Artistas</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
@@ -47,8 +47,8 @@
                                role="button" 
                                aria-expanded="false">!"#$ Eventos</a>
                             <ul class="dropdown-menu dropdown-menu-dark">
-                                <li><a class="dropdown-item"  th:href="@{/eventos/listado}">!"#$Listar Eventos</a></li>
-                                <li><a class="dropdown-item"  th:href="@{/eventos/crearEventos}">!"#$Crear Eventos</a></li>
+                                <li><a class="dropdown-item"  th:href="@{/eventos/listado}">!"#$ Listar Eventos</a></li>
+                                <li><a class="dropdown-item"  th:href="@{/eventos/crearEventos}">!"#$ Crear Eventos</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
@@ -58,8 +58,19 @@
                                role="button" 
                                aria-expanded="false">!"# Notificaciones</a>
                             <ul class="dropdown-menu dropdown-menu-dark">
-                                <li><a class="dropdown-item"  th:href="@{/notificaciones/listado}">!"#$Listar Notificaciones</a></li>
-                                <li><a class="dropdown-item"  th:href="@{/notificaciones/crearNotificaciones}">!"#$Crear Notificacion</a></li>
+                                <li><a class="dropdown-item"  th:href="@{/notificaciones/listado}">!"#$ Listar Notificaciones</a></li>
+                                <li><a class="dropdown-item"  th:href="@{/notificaciones/crearNotificaciones}">!"#$ Crear Notificacion</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" 
+                               data-bs-toggle="dropdown" 
+                               th:href="@{/boletines/listado}"
+                               role="button" 
+                               aria-expanded="false">!"# Boletines</a>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item"  th:href="@{/boletines/listado}">!"#$ Listar Boletines</a></li>
+                                <li><a class="dropdown-item"  th:href="@{/boletines/crearBoletines}">!"#$ Crear Boletines</a></li>
                             </ul>
                         </li>
                         <form class="form-inline my-2 my-lg-0">
