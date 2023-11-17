@@ -6,18 +6,17 @@ package com.Proyecto.domain;
 
 import jakarta.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 import lombok.Data;
 
 // @data de lombok lo que hace es crear implicitamente los getter and setters
 @Data
 // @Entity lo que significa es que esta clase va a tener acceso a una tabla porque es una entidad
 @Entity
-// Significa que esta clase va a mapear la tabla artistas de la base de datos
-@Table(name="artistas")
+// Significa que esta clase va a mapear la tabla rol de la base de datos
+@Table(name="roles")
 
-// Se realiza un implements Serializable para que esta clase pueda guardar la información
-public class Artistas implements Serializable{
-    
+public class Roles implements Serializable{
     // Esta variable se debe llamar serialVersionUID ya que así la utiliza la base de datos
     // para el manego de la llave primaria
     private static final long serialVersionUID = 1L;
@@ -27,10 +26,9 @@ public class Artistas implements Serializable{
     //@GeneratedValue(strategy = GenerationType.IDENTITY) indica que la generación de la numeración
     // la va a realizar la base de datos
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    // @Column (name="idArtistas") significa que la variable va a ser referencia a la columna
-    // idArtistas de la base de datos
-    @Column (name="id_Artista")
-    private Long idArtista;
+    // @Column (name="idRol") significa que la variable va a ser referencia a la columna
+    // id_rol de la base de datos
+    @Column (name="id_rol")
+    private Long idRol;
     private String nombre;
-    private String rutaImagen;
 }

@@ -10,5 +10,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 // esta interface debe de heredar de JpaRepository<Clase, tio dato>, eso es todo
 
 public interface UsuariosDao extends JpaRepository<Usuarios, Long>{
-    
+    // se hace una busqueda por username
+    Usuarios findByNombre(String nombre);
 }

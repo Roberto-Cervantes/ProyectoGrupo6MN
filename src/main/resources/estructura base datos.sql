@@ -17,7 +17,6 @@
 
 --
 -- Table structure for table `artistas`
--- ACTUALIZACION
 --
 
 DROP TABLE IF EXISTS `artistas`;
@@ -28,7 +27,7 @@ CREATE TABLE `artistas` (
   `nombre` varchar(45) NOT NULL,
   `ruta_imagen` varchar(254) DEFAULT NULL,
   PRIMARY KEY (`id_artista`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -37,6 +36,7 @@ CREATE TABLE `artistas` (
 
 LOCK TABLES `artistas` WRITE;
 /*!40000 ALTER TABLE `artistas` DISABLE KEYS */;
+INSERT INTO `artistas` VALUES (1,'Teatro',NULL),(2,'Danza','');
 /*!40000 ALTER TABLE `artistas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -75,7 +75,7 @@ CREATE TABLE `boletines` (
   `mensaje` varchar(1024) NOT NULL,
   `estado` tinyint NOT NULL,
   PRIMARY KEY (`id_boletin`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -84,6 +84,7 @@ CREATE TABLE `boletines` (
 
 LOCK TABLES `boletines` WRITE;
 /*!40000 ALTER TABLE `boletines` DISABLE KEYS */;
+INSERT INTO `boletines` VALUES (1,'Estimado suscriptor.\r\n\r\nLe invitamos a formar parte de la campaña un regalo para los necesitados.\r\n\r\nEstaremos recibiendo juguetes el proximo lunes.',0);
 /*!40000 ALTER TABLE `boletines` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -137,7 +138,7 @@ CREATE TABLE `eventos` (
   PRIMARY KEY (`id_evento`),
   KEY `fk_idArtistas_idx` (`artista_id`),
   CONSTRAINT `fk_idArtistas` FOREIGN KEY (`artista_id`) REFERENCES `artistas` (`id_artista`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -146,6 +147,7 @@ CREATE TABLE `eventos` (
 
 LOCK TABLES `eventos` WRITE;
 /*!40000 ALTER TABLE `eventos` DISABLE KEYS */;
+INSERT INTO `eventos` VALUES (1,'Danza los patitos',1,'08/11/2023','08:00PM',15000,NULL),(3,'Mascaradas',1,'12/11/2023','2:00',10000,'');
 /*!40000 ALTER TABLE `eventos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -189,7 +191,7 @@ CREATE TABLE `notificaciones` (
   `id_notificacion` int NOT NULL AUTO_INCREMENT,
   `mensaje` varchar(1024) NOT NULL,
   PRIMARY KEY (`id_notificacion`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -198,6 +200,7 @@ CREATE TABLE `notificaciones` (
 
 LOCK TABLES `notificaciones` WRITE;
 /*!40000 ALTER TABLE `notificaciones` DISABLE KEYS */;
+INSERT INTO `notificaciones` VALUES (1,'se notifica al publico en general que la funcion mascaradas tendra una funcional adicional a peticion del publico'),(10,'Se avisa al publico que el proximo Jueves se inicia la venta de las entradas para Mascaradas 2023');
 /*!40000 ALTER TABLE `notificaciones` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -241,8 +244,11 @@ DROP TABLE IF EXISTS `roles`;
 CREATE TABLE `roles` (
   `id_rol` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(45) NOT NULL,
-  PRIMARY KEY (`id_rol`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
+  `usuario_id` int NOT NULL,
+  PRIMARY KEY (`id_rol`),
+  KEY `fk_roles_usuarios_idx` (`usuario_id`),
+  CONSTRAINT `fk_roles_usuarios` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id_usuario`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -251,7 +257,7 @@ CREATE TABLE `roles` (
 
 LOCK TABLES `roles` WRITE;
 /*!40000 ALTER TABLE `roles` DISABLE KEYS */;
-INSERT INTO `roles` VALUES (1,'Administrador'),(2,'Super usuario'),(3,'Cliente');
+INSERT INTO `roles` VALUES (1,'ADMIN',1),(2,'USER',1);
 /*!40000 ALTER TABLE `roles` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -294,10 +300,9 @@ CREATE TABLE `usuarios` (
   `cedula` varchar(24) NOT NULL,
   `correo` varchar(45) NOT NULL,
   `contrasena` varchar(45) NOT NULL,
-  `rol_id` int NOT NULL,
-  PRIMARY KEY (`id_usuario`),
-  KEY `fk_idRol_idx` (`rol_id`),
-  CONSTRAINT `fk_idRol` FOREIGN KEY (`rol_id`) REFERENCES `roles` (`id_rol`)
+  `ruta_imagen` varchar(1024) DEFAULT NULL,
+  `activo` tinyint NOT NULL,
+  PRIMARY KEY (`id_usuario`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -307,7 +312,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (1,'Roberto','Cervantes','Castillo','1800800','roberto@ufide.com','Roberto',3),(4,'Juan','Perez','Perez','1100100','Juan@ufide.com','juan',3),(6,'Pablo','Gomez','Gomez','1700000','pablo@ufide.com','pablo',3),(7,'Felipe','Miranda','Alberto','910124578','felipe@ufide.com','Felipe',3);
+INSERT INTO `usuarios` VALUES (1,'Roberto','Cervantes','Castillo','1800800','roberto@ufide.com','Roberto',NULL,0),(4,'Juan','Perez','Perez','1100100','Juan@ufide.com','juan',NULL,0),(6,'Pablo','Gomez','Gomez','1700000','pablo@ufide.com','pablo',NULL,0),(7,'Felipe','Miranda','Alberto','910124578','felipe@ufide.com','Felipe',NULL,0);
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -343,4 +348,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-11-07 12:48:58
+-- Dump completed on 2023-11-16 21:09:35

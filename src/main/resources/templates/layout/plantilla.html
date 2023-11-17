@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
       xmlns:th="http://thymeleaf.org">
     <head th:fragment="head">
         <title>SISTEMA DE TICKETS TEATRO</title>
@@ -30,16 +31,16 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item active">
-                                <a class="nav-link" href="#">Actuales <span class="sr-only">(current)</span></a>
+                                <a class="nav-link" href="#">!"#$ Actuales <span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Próximos</a>
+                                <a class="nav-link" href="#">!"#$ Próximos</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Artistas</a>
+                                <a class="nav-link" href="#">!"#$ Artistas</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Reseñas</a>
+                                <a class="nav-link" href="#">!"#$ Reseñas</a>
                             </li>
                         </ul>
                         <form class="form-inline my-2 my-lg-0">
@@ -48,20 +49,20 @@
                         </form>
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item active">
-                                <a class="nav-link" href="#">Identificate <span class="sr-only">(current)</span></a>
+                                <a class="nav-link" th:href="@{/usuarios/usuarioActivo/1}">!"#$ Identificate <span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" th:href="@{/usuarios/crearUsuario}">!"#$Registrate</a>
+                                <a class="nav-link" th:href="@{/usuarios/crearUsuario}">!"#$ Registrate</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Ubicación</a>
+                                <a class="nav-link" href="#">!"#$ Ubicación</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Notificaciones</a>
+                                <a class="nav-link" href="#">!"#$ Notificaciones</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Idioma
+                                    !"#$ Idioma
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="#">Esp</a>

@@ -29,7 +29,7 @@ public class Notificaciones implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     // @Column (name="idNotificacions") significa que la variable va a ser referencia a la columna
     // idNotificacions de la base de datos
-    @Column (name="idNotificacion")
+    @Column (name="id_Notificacion")
     private Long idNotificacion;
     private String mensaje;
 }

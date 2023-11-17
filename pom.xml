@@ -43,6 +43,9 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>   
+        
+        <!--- Estas dependencias se agregan adicinal a las que
+        ya se generaron al crear el proyecto -->
                 
         <dependency>
             <groupId>org.webjars</groupId>
@@ -90,6 +93,19 @@
             <artifactId>firebase-admin</artifactId>
             <version>9.1.1</version>
         </dependency>  
+        
+        
+        <!--- Estas dependencias son para pedir loguearse y colocar password -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>  
+        
+        <dependency>
+            <groupId>org.thymeleaf.extras</groupId>
+            <artifactId>thymeleaf-extras-springsecurity6</artifactId>
+        </dependency> 
+        
     </dependencies>
 
     <build>

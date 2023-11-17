@@ -29,7 +29,7 @@ public class Eventos implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     // @Column (name="idEventos") significa que la variable va a ser referencia a la columna
     // idEventos de la base de datos
-    @Column (name="idEvento")
+    @Column (name="id_Evento")
     private Long idEvento;
     private String descripcion;
     private Long artistaId;

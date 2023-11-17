@@ -6,6 +6,7 @@ package com.Proyecto.domain;
 
 import jakarta.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 import lombok.Data;
 
 // @data de lombok lo que hace es crear implicitamente los getter and setters
@@ -29,7 +30,7 @@ public class Usuarios implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     // @Column (name="idUsuarios") significa que la variable va a ser referencia a la columna
     // idUsuarios de la base de datos
-    @Column (name="idUsuarios")
+    @Column (name="id_Usuarios")
     private Long idUsuarios;
     private String nombre;
     private String apellido1;
@@ -37,5 +38,16 @@ public class Usuarios implements Serializable{
     private String cedula;
     private String correo  ;
     private String contrasena ;
-    private Long RolId;
+    private String rutaImagen ;
+    private boolean activo;
+    private Long RolId;//QUITAR
+    
+    // esta anotación es para referenciar una relación de uno  a muchos en la base datos
+    @OneToMany
+    //esta anotación es para indicar que la columna id_usuario es la que hace 
+    //la relación entre las tablas usuarios y productos
+    // indicar updatable=false indica que no se actualicen cascadas de filas
+    @JoinColumn(name="id_usuario", updatable=false)
+    // la variable es una lista de productos, ya que la relación es de uno a muchos   
+    private List<Roles> roles;
 }

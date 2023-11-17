@@ -29,7 +29,7 @@ public class Boletines implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     // @Column (name="idBoletins") significa que la variable va a ser referencia a la columna
     // idBoletins de la base de datos
-    @Column (name="idBoletin")
+    @Column (name="id_Boletin")
     private Long idBoletin;
     private String mensaje;
     private int estado;
