@@ -294,12 +294,12 @@ DROP TABLE IF EXISTS `usuarios`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `usuarios` (
   `id_usuario` int NOT NULL AUTO_INCREMENT,
+  `username` varchar(45) NOT NULL,
+  `password` varchar(512) NOT NULL,
   `nombre` varchar(45) NOT NULL,
   `apellido1` varchar(45) NOT NULL,
   `apellido2` varchar(45) NOT NULL,
   `cedula` varchar(24) NOT NULL,
-  `correo` varchar(45) NOT NULL,
-  `contrasena` varchar(45) NOT NULL,
   `ruta_imagen` varchar(1024) DEFAULT NULL,
   `activo` tinyint NOT NULL,
   PRIMARY KEY (`id_usuario`)
@@ -312,7 +312,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (1,'Roberto','Cervantes','Castillo','1800800','roberto@ufide.com','Roberto',NULL,0),(4,'Juan','Perez','Perez','1100100','Juan@ufide.com','juan',NULL,0),(6,'Pablo','Gomez','Gomez','1700000','pablo@ufide.com','pablo',NULL,0),(7,'Felipe','Miranda','Alberto','910124578','felipe@ufide.com','Felipe',NULL,0);
+INSERT INTO `usuarios` VALUES (1,'roberto@ufide.com','$2a$10$P1.w58XvnaYQUQgZUCk4aO/RTRl8EValluCqB3S2VMLTbRt.tlre.','Roberto','Cervantes','Castillo','1800800',NULL,0),(4,'juan@ufide.com','$2a$10$P1.w58XvnaYQUQgZUCk4aO/RTRl8EValluCqB3S2VMLTbRt.tlre.','Juan','Perez','Perez','1100100',NULL,0),(6,'pablo@ufide.com','$2a$10$P1.w58XvnaYQUQgZUCk4aO/RTRl8EValluCqB3S2VMLTbRt.tlre.','Pablo','Gomez','Gomez','1700000',NULL,0),(7,'felipe@ufide.com','$2a$10$P1.w58XvnaYQUQgZUCk4aO/RTRl8EValluCqB3S2VMLTbRt.tlre.','Felipe','Miranda','Alberto','910124578',NULL,0);
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -348,4 +348,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-11-16 21:09:35
+-- Dump completed on 2023-11-17 12:36:58

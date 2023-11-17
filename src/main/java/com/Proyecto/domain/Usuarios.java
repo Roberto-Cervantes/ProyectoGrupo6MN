@@ -30,24 +30,23 @@ public class Usuarios implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     // @Column (name="idUsuarios") significa que la variable va a ser referencia a la columna
     // idUsuarios de la base de datos
-    @Column (name="id_Usuarios")
+    @Column (name="id_usuario")
     private Long idUsuarios;
-    private String nombre;
+    private String username;
     private String apellido1;
     private String apellido2;
     private String cedula;
-    private String correo  ;
-    private String contrasena ;
+    private String password ;
     private String rutaImagen ;
     private boolean activo;
-    private Long RolId;//QUITAR
+    
     
     // esta anotación es para referenciar una relación de uno  a muchos en la base datos
     @OneToMany
-    //esta anotación es para indicar que la columna id_usuario es la que hace 
-    //la relación entre las tablas usuarios y productos
+    //esta anotación es para indicar que la colsumna id_usuario es la que hace 
+    //la relación entre las tablas 
     // indicar updatable=false indica que no se actualicen cascadas de filas
-    @JoinColumn(name="id_usuario", updatable=false)
+    @JoinColumn(name="usuario_id", updatable=false)
     // la variable es una lista de productos, ya que la relación es de uno a muchos   
     private List<Roles> roles;
 }

@@ -6,11 +6,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -52,7 +49,8 @@ public class ProjectConfig implements WebMvcConfigurer {
 
     /* Los siguiente métodos son para implementar el tema de seguridad dentro del proyecto */
     // son para manejar el password y la contraseña
-    // FORMA DE NO HACER UN CONTROLLER PARA ESTAS RUTAS, LOS GET MAPPING YA VAN A ESTAR DEFINIDAS AHI
+    
+    // FORMA DE NO HACER UN CONTROLLER PARA ESTAS RUTAS,  LOS GET MAPPING YA VAN A ESTAR DEFINIDAS AHI
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/").setViewName("index");
@@ -60,22 +58,30 @@ public class ProjectConfig implements WebMvcConfigurer {
         registry.addViewController("/login").setViewName("login");
         registry.addViewController("/registro/nuevo").setViewName("/registro/nuevo");
     }
-
+    
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                // permite ingreso con rol todos
-                .authorizeHttpRequests(
-                        (request) -> request
-                                .requestMatchers("/", "/index", "/errores/**",
-                                        "/carrito/**", "/pruebas/**", "/reportes/**",
-                                        "/registro/**", "/js/**", "/webjars/**")
-                                .permitAll()
-                                // permite ingreso solo con rol admin       
-                                .requestMatchers(
-                                        "/administrador/**"
-                                ).hasRole("ADMIN")
+                // permite ingreso a todos los que quieran ver estas rutas, sin excepción
+                .authorizeHttpRequests((request) -> request
+                .requestMatchers("/", "/index", "/error/**",
+                        "/carrito/**", "/reportes/**",
+                        "/registro/**", "/js/**", "/webjars/**")
+                .permitAll()
+                        
+                // permite ingreso solo con rol admin       
+                .requestMatchers(
+                        "/usuario/nuevo", "/usuario/guardar",
+                        "/usuario/modificar/**", "/usuario/eliminar/**",
+                        "/reportes/**"
+                ).hasRole("ADMIN")
+                        
+                                        
+                // permite ingreso solo con rol user        
+                .requestMatchers("/facturar/carrito")
+                .hasRole("USER")
                 )
+                
                 // indica cual es el formulario de login
                 .formLogin((form) -> form
                 .loginPage("/login").permitAll())
@@ -83,29 +89,15 @@ public class ProjectConfig implements WebMvcConfigurer {
         return http.build();
     }
     
-    @Bean
-    public UserDetailsService users() {
-        UserDetails admin = User.builder()
-                .username("Roberto")
-                .password("{noop}123")
-                .roles("USER", "ADMIN")
-                .build();
-        return new InMemoryUserDetailsManager(admin);
-    }
-
-    /*
     @Autowired
     private UserDetailsService userDetailsService;
-
+    
     @Autowired
     public void configurerGlobal(AuthenticationManagerBuilder build)
             throws Exception {
         build.userDetailsService(userDetailsService).passwordEncoder(
                 new BCryptPasswordEncoder()
         );
-    }*/
- /* El siguiente método se utiliza para completar la clase no es 
-    realmente funcional, la próxima semana se reemplaza con usuarios de BD */
+    }
     
-
 }

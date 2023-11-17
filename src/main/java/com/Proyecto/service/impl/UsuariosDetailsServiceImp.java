@@ -29,12 +29,12 @@ public class UsuariosDetailsServiceImp implements UsuariosDetailsService, UserDe
  
     @Override
     @Transactional(readOnly = true)
-    public UserDetails loadUserByUsername(String nombre) throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         //Busca el usuario por el username en la tabla
-        Usuarios usuarios = usuarioDao.findByNombre(nombre);
+        Usuarios usuarios = usuarioDao.findByUsername(username);
         //Si no existe el usuario lanza una excepción
         if (usuarios == null) {
-            throw new UsernameNotFoundException(nombre);
+            throw new UsernameNotFoundException(username);
         }
         session.removeAttribute("usuarioImagen");
         session.setAttribute("usuarioImagen", usuarios.getRutaImagen());
@@ -44,7 +44,7 @@ public class UsuariosDetailsServiceImp implements UsuariosDetailsService, UserDe
             roles.add(new SimpleGrantedAuthority(rol.getNombre()));
         } 
         //Se devuelve User (clase de userDetails)
-        return new User(usuarios.getNombre(), usuarios.getContrasena(), roles);
+        return new User(usuarios.getUsername(), usuarios.getPassword(), roles);
     } 
 
     @Override

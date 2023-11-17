@@ -31,4 +31,8 @@ public class Roles implements Serializable{
     @Column (name="id_rol")
     private Long idRol;
     private String nombre;
+    
+    //Esta es una foreign key, estamos haciendo referencia igual que en la primary key
+    @Column (name="usuario_id")
+    private Long idUsuario;
 }
