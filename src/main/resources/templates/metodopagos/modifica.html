@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+    <head th:replace="~{administrador/fragmentos :: head}">
+        <title>Modificar Método de Pago</title>
+    </head>
+    <body>
+
+        <header th:replace="~{administrador/fragmentos::header}"/>
+
+        <!-- Aquí se reemplaza la sección por el fragmento para editar un método de pago -->
+        <section th:replace="~{metodosdepago/fragmentos :: editarMetodoPago}"/>  
+        
+        <footer th:replace="~{administrador/fragmentos::footer}"/>
+
+    </body>
+</html>
