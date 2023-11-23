@@ -66,20 +66,21 @@ public class ProjectConfig implements WebMvcConfigurer {
                 .authorizeHttpRequests((request) -> request
                 .requestMatchers("/", "/index", "/error/**",
                         "/carrito/**", "/reportes/**",
-                        "/registro/**", "/js/**", "/webjars/**")
+                        "/registro/**", "/js/**", "/webjars/**",
+                        "administrador/**","artistas/**"    )
                 .permitAll()
-                        
+                 /*       
                 // permite ingreso solo con rol admin       
                 .requestMatchers(
                         "/usuario/nuevo", "/usuario/guardar",
                         "/usuario/modificar/**", "/usuario/eliminar/**",
-                        "/reportes/**"
+                        "/reportes/**", "/administrador/control"
                 ).hasRole("ADMIN")
                         
                                         
                 // permite ingreso solo con rol user        
                 .requestMatchers("/facturar/carrito")
-                .hasRole("USER")
+                .hasRole("USER")*/
                 )
                 
                 // indica cual es el formulario de login
