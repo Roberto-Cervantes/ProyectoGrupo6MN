@@ -4,7 +4,7 @@
  */
 package com.Proyecto.service;
 
-import com.Proyecto.domain.Eventos;
+import com.Proyecto.domain.Eventos; 
 import java.util.List;
 
 // Esta interface es para obtener el listado de eventoss

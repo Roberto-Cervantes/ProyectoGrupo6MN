@@ -9,7 +9,7 @@ import com.Proyecto.domain.Artistas;
 import com.Proyecto.service.ArtistasService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Service; 
 import org.springframework.transaction.annotation.Transactional;
 
 // Se le indica una anotación que esta clase es un servicio

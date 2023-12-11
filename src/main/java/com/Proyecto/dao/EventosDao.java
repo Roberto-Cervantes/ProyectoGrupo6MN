@@ -9,6 +9,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 // esta interface debe de heredar de JpaRepository<Clase, tio dato>, eso es todo
 
-public interface EventosDao extends JpaRepository<Eventos, Long>{
+public interface EventosDao extends JpaRepository<Eventos, Long>{ 
     
 }

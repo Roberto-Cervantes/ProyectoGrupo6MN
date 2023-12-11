@@ -10,5 +10,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 // esta interface debe de heredar de JpaRepository<Clase, tio dato>, eso es todo
 
 public interface BoletinesDao extends JpaRepository<Boletines, Long>{
-    
+     
 }

@@ -11,5 +11,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UsuariosDao extends JpaRepository<Usuarios, Long>{
     // se hace una busqueda por username
-    Usuarios findByUsername(String username);
+    Usuarios findByUsername(String username);   
 }

@@ -10,6 +10,6 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 // Esta interface es para obtener el listado de usuarioss
 public interface UsuariosDetailsService {
    
-    public UserDetails loadUserByNombre(String nombre) throws 
+    public UserDetails loadUserByNombre(String nombre) throws  
             UsernameNotFoundException;
 }

@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
  */
 package com.Proyecto.service;
-
+ 
 import com.Proyecto.domain.Boletines;
 import java.util.List;
 

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 // "/usuarios" es el nombre del get que aparece en la pagina web al pasar por encima el mouse
 @RequestMapping("/administrador")
 
-public class ControlController {
+public class ControlController { 
 
 
     //Esto es un mapeo de un metodo GET (no de consultas como el de arriba)

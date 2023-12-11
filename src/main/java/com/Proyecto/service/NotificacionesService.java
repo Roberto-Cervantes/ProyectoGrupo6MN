@@ -11,7 +11,7 @@ import java.util.List;
 public interface NotificacionesService {
    
     // Se obtiene un listado de notificacioness en un List
-    public List<Notificaciones> getNotificaciones(boolean activos);
+    public List<Notificaciones> getNotificaciones(boolean activos); 
     
    // Se obtiene un Notificaciones, a partir del id de un notificaciones
     public Notificaciones getNotificaciones(Notificaciones notificaciones);

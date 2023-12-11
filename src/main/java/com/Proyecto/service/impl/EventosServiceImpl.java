@@ -10,7 +10,7 @@ import com.Proyecto.service.EventosService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.annotation.Transactional; 
 
 // Se le indica una anotación que esta clase es un servicio
 @Service
