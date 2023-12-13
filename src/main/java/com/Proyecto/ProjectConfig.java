@@ -68,7 +68,8 @@ public class ProjectConfig implements WebMvcConfigurer {
                         "/carrito/**", "/reportes/**",
                         "/registro/**", "/js/**", "/webjars/**",
                         "administrador/**","artistas/**", "compras/**",
-                        "/layout/**")
+                        "/layout/**","/eventos/**","/boletines/**", 
+                        "/notificaciones/**")
                 .permitAll()
                  /*       
                 // permite ingreso solo con rol admin       
