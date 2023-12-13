@@ -15,27 +15,27 @@
                 <div class="col-md-3"></div>
                 <div class="col-md-6">
                     <div class="card">
-                        <div class="card-header bg-success"><h2>[[#{login.login}]]</h2></div>
+                        <div class="card-header bg-success"><h2>Login</h2></div>
                         <div class="card-body">
                             <!-- El metodo debe llamarse /login, ya que spring busca este nombre -->
                             <form method="POST" th:action="@{/login}">
                                 <div class="form-group row my-3">
-                                    <label class="col-md-5 my-auto" for="username"><i class="fas fa-user-lock"></i>[[#{login.username}]]:</label>
+                                    <label class="col-md-5 my-auto" for="username"><i class="fas fa-user-lock"></i> User Name:</label>
                                     <div class="col-md-7 my-auto">
                                         <!-- El parametro debe llamarse username, ya que spring busca este nombre -->
                                         <input class="form-control" type="text" value="roberto@ufide.com" name="username" id="username"/></div></div>
                                 <div class="form-group row my-3">
                                     <!-- El parametro debe llamarse password, ya que spring busca este nombre -->
-                                    <label class="col-md-5 my-auto" for="password"><i class="fas fa-key"></i>[[#{login.password}]]</label>
+                                    <label class="col-md-5 my-auto" for="password"><i class="fas fa-key"></i> Password</label>
                                     <div class="col-md-7 my-auto"><input class="form-control" value="123" type="password" name="password" id="password"/></div></div>
                                 <div class="card-footer col text-center">
                                     <button class="btn btn-primary" >
-                                        <a th:href="@{/registro/nuevo}" class="btn"><i class="fas fa-user-plus"></i> [[#{accion.registrar}]]</a></button>
+                                        <a th:href="@{/registro/nuevo}" class="btn"><i class="fas fa-user-plus"></i> Registrar</a></button>
                                     <button class="btn btn-info" >                                        
-                                        <a th:href="@{/registro/recordar}" class="btn"><i class="fas fa-envelope"></i> [[#{accion.recordar}]]</a></button>
+                                        <a th:href="@{/registro/recordar}" class="btn"><i class="fas fa-envelope"></i> Recordar</a></button>
                                     <button class="btn btn-success" type="submit">
                                         <span class="btn"><i class="fas fa-sign-in-alt"></i>
-                                            [[#{login.login}]]</span></button>
+                                            login</span></button>
                                 </div>
                             </form>                            
                         </div>

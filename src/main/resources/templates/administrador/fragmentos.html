@@ -55,25 +55,15 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" 
                                data-bs-toggle="dropdown" 
-                               th:href="@{/notificaciones/listado}"
+                               th:href="@{/reportes/principal}"
                                role="button" 
-                               aria-expanded="false">!"# Notificaciones</a>
+                               aria-expanded="false">!"# Reportes</a>
                             <ul class="dropdown-menu dropdown-menu-dark">
-                                <li><a class="dropdown-item"  th:href="@{/notificaciones/listado}">!"#$ Listar Notificaciones</a></li>
-                                <li><a class="dropdown-item"  th:href="@{/notificaciones/crearNotificaciones}">!"#$ Crear Notificacion</a></li>
+                                <li><a class="dropdown-item"  th:href="@{/reportes/principal}">!"#$ Reportes</a></li>
+                                
                             </ul>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" 
-                               data-bs-toggle="dropdown" 
-                               th:href="@{/boletines/listado}"
-                               role="button" 
-                               aria-expanded="false">!"# Boletines</a>
-                            <ul class="dropdown-menu dropdown-menu-dark">
-                                <li><a class="dropdown-item"  th:href="@{/boletines/listado}">!"#$ Listar Boletines</a></li>
-                                <li><a class="dropdown-item"  th:href="@{/boletines/crearBoletines}">!"#$ Crear Boletines</a></li>
-                            </ul>
-                        </li>
+                        
                         <form class="form-inline my-2 my-lg-0">
                             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>

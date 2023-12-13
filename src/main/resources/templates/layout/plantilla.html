@@ -11,6 +11,8 @@
         <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
         <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
         <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+   
+    
     </head>
     <body>      
         <header th:fragment="header" class="header">
@@ -31,16 +33,16 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item active">
-                                <a class="nav-link" href="#">!"#$ Actuales <span class="sr-only">(current)</span></a>
+                                <a class="nav-link" href="#">Actuales <span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">!"#$ Próximos</a>
+                                <a class="nav-link" href="#">Próximos</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">!"#$ Artistas</a>
+                                <a class="nav-link" href="#">Artistas</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">!"#$ Reseñas</a>
+                                <a class="nav-link" href="#">Reseñas</a>
                             </li>
                         </ul>
                         <form class="form-inline my-2 my-lg-0">
@@ -49,26 +51,18 @@
                         </form>
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item active">
-                                <a class="nav-link" th:href="@{/usuarios/usuarioActivo/1}">!"#$ Identificate <span class="sr-only">(current)</span></a>
+                                <a class="nav-link" th:href="@{/usuarios/usuarioActivo/1}"> Identificate <span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" th:href="@{/usuarios/crearUsuario}">!"#$ Registrate</a>
+                                <a class="nav-link" th:href="@{/usuarios/crearUsuario}">Registrate</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">!"#$ Ubicación</a>
+                                <a class="nav-link" href="#">Ubicación</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">!"#$ Notificaciones</a>
+                                <a class="nav-link" href="#">Notificaciones</a>
                             </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    !"#$ Idioma
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="#">Esp</a>
-                                    <a class="dropdown-item" href="#">Ing</a>
-                                </div>
-                            </li>                          
+                                                    
                         </ul>                        
                     </div>
                 </nav>  
@@ -81,7 +75,13 @@
                         <span class="badge badge-success text-success" 
                               sec:authentication='name'> 
                             jhon 
-                        </span> 
+                            
+                        </span>
+                        <span>
+                           <a class="nav-link" href="http://localhost/administrador/control"> Aministrar </a> 
+                        
+                        </span>
+                        
                         <form method="post" th:action='@{/logout}'>
                             <button class="btn btn-success">
                                 <i class='fas fa-sign-out-alt'></i>
@@ -96,6 +96,7 @@
                                         Iniciar Sesion
                                     </span>
                                     <i class="fas fa-sign-in-alt"></i>
+                                    
                                 </a>
                             </li>
                         </ul>
@@ -104,32 +105,76 @@
             </div>
         </header>
 
-        <section th:fragment="section-level-1"  class="py-2">
-            <div class="container px-4 px-lg-5 my-5">
-                <div class="col mb-5">
-                    <div class="card h-75">
-                        <!-- Product image-->
-                        <img class="card-img-top" src="https://firebasestorage.googleapis.com/v0/b/tech-shop-m.appspot.com/o/evento1.jpg?alt=media&token=6a6c0d37-ddad-49da-b712-62d8683450f8&_gl=1*1u6tjah*_ga*NDQ2OTkzODkzLjE2OTg1NDc3ODQ.*_ga_CW55HF8NVT*MTY5ODU1Nzg4MS4yLjEuMTY5ODU1OTU1MS42MC4wLjA." alt="..." />
-                        <!-- Product details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- Product name-->
-                                <h5 class="fw-bolder">Proximo Evento</h5>
-                                <!-- Product price-->
-                                ¢25.000.00
+        <section th:fragment="section-level-1" class="py-5 bg-light">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="card">
+                            <img class="card-img-top" src="https://firebasestorage.googleapis.com/v0/b/tech-shop-m.appspot.com/o/evento1.jpg?alt=media&token=6a6c0d37-ddad-49da-b712-62d8683450f8&_gl=1*1u6tjah*_ga*NDQ2OTkzODkzLjE2OTg1NDc3ODQ.*_ga_CW55HF8NVT*MTY5ODU1Nzg4MS4yLjEuMTY5ODU1OTU1MS42MC4wLjA." alt="Próximo Evento" />
+                            <div class="card-body">
+                                <h5 class="card-title fw-bolder">¡Imperdible! Próximo Evento</h5>
+                                <p class="card-text">¡La obra más hermosa del mundo que te dejará sin palabras!</p>
+                                <p class="card-text">¡Invitados especiales de la prestigiosa Compañía del Teatro Luxe!</p>
+                                <p class="card-text">¡No te lo pierdas por solo ¢25.000.00!</p>
                             </div>
-                        </div>
-                        <!-- Product actions-->
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center">
-                                <a class="btn btn-outline-dark mt-auto" 
-                                   th:href="@{/compras/crearCompras}">Reservar</a>
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center">
+                                    <a class="btn btn-outline-dark mt-auto" 
+                                       th:href="@{/compras/crearCompras}">¡Reserva tu asiento ahora!</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <div class="card">
+                    <img class="card-img-top" src="https://firebasestorage.googleapis.com/v0/b/tech-shop-m.appspot.com/o/evento1.jpg?alt=media&token=6a6c0d37-ddad-49da-b712-62d8683450f8&_gl=1*1u6tjah*_ga*NDQ2OTkzODkzLjE2OTg1NDc3ODQ.*_ga_CW55HF8NVT*MTY5ODU1Nzg4MS4yLjEuMTY5ODU1OTU1MS42MC4wLjA." alt="Próximo Evento" />
+                    <div class="card-body">
+                        <h5 class="card-title fw-bolder">¡Imperdible! Próximamente...</h5>
+                        <p class="card-text">¡Una obra musical que te llevará a otro mundo!</p>
+                        <p class="card-text">Presentada por la emocionante Pancho Aiguana SAS</p>
+                        <p class="card-text">¡Solo por ¢25.000.00! ¡No te lo puedes perder!</p>
+                    </div>
+
+                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                        <div class="text-center">
+                            <a class="btn btn-outline-dark mt-auto" 
+                               th:href="@{/compras/crearCompras}">¡Reserva tu asiento ahora!</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+    <div class="row">
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                <img class="card-img-top" src="https://firebasestorage.googleapis.com/v0/b/tech-shop-m.appspot.com/o/evento1.jpg?alt=media&token=6a6c0d37-ddad-49da-b712-62d8683450f8&_gl=1*1u6tjah*_ga*NDQ2OTkzODkzLjE2OTg1NDc3ODQ.*_ga_CW55HF8NVT*MTY5ODU1Nzg4MS4yLjEuMTY5ODU1OTU1MS42MC4wLjA." alt="Próximo Evento" />
+                <div class="card-body">
+                    <h5 class="card-title fw-bolder">¡Increíble Concierto Navideño!</h5>
+                    <p class="card-text">¡La Belada de Clásicos Navideños que te hará vibrar!</p>
+                    <p class="card-text">¡Actuación especial de la Filarmónica Azul!</p>
+                    <p class="card-text">¡Entradas a solo ¢25.000.00!</p>
+                </div>
+                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                    <div class="text-center">
+                        <a class="btn btn-outline-dark mt-auto" 
+                           th:href="@{/compras/crearCompras}">¡Reserva tu asiento ahora!</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+ 
+</section>
 
         <section th:fragment="section-level-2" class="py-5">
             <div class="container px-4 px-lg-5 mt-5">
