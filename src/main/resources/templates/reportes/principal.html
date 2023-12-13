@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+    <head th:replace="~{layout/plantilla :: head}">
+        <link rel="stylesheet" href="../../static/css/estilos.css" type="text/css"/>
+        <title>Reportes - TechShop</title>
+    </head>
+    <body>
+        <header th:replace="~{layout/plantilla :: header}"></header>
+
+        <div class="container mt-4">
+            <!-- Reporte de Artistas -->
+            <div class="card mb-4">
+                <div class="card-header text-center">
+                   <h5>[[#{reportes.Artistas}]]</h5>
+                </div>
+                <div class="card-body">
+                    <a th:href="@{/reportes/Artistas?tipo=vPdf}" class="btn btn-primary">
+                        <i class="fas fa-eye"></i> Ver PDF       
+                    </a>
+                    <a th:href="@{/reportes/Artistas?tipo=Pdf}" class="btn btn-success">
+                        <i class="fas fa-download"></i> Descargar PDF
+                    </a>
+                    <a th:href="@{/reportes/Artistas?tipo=Csv}" class="btn btn-danger">
+                        <i class="fas fa-download"></i> Descargar CSV
+                    </a>
+                    <a th:href="@{/reportes/Artistas?tipo=Xls}" class="btn btn-warning">
+                        <i class="fas fa-download"></i> Descargar Excel
+                    </a>
+                </div>
+            </div>
+
+            <!-- Reporte de Eventos -->
+            <div class="card mb-4">
+                <div class="card-header text-center">
+                    <h5>[[#{reportes.eventos}]]</h5>
+                </div>
+                <div class="card-body">
+                    <a th:href="@{/reportes/eventos?tipo=vPdf}" class="btn btn-primary">
+                        <i class="fas fa-eye"></i> Ver PDF
+                    </a>
+                    <a th:href="@{/reportes/eventos?tipo=Pdf}" class="btn btn-success">
+                        <i class="fas fa-download"></i> Descargar PDF
+                    </a>
+                    <a th:href="@{/reportes/eventos?tipo=Csv}" class="btn btn-danger">
+                        <i class="fas fa-download"></i> Descargar CSV
+                    </a>
+                    <a th:href="@{/reportes/eventos?tipo=Xls}" class="btn btn-warning">
+                        <i class="fas fa-download"></i> Descargar Excel
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <footer th:replace="~{layout/plantilla :: footer}"></footer>
+    </body>
+</html>
